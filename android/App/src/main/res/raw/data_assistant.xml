@@ -1,0 +1,182 @@
+<?xml version="1.0" encoding="utf-8"?>
+<assistant>
+    <commands>
+
+        <!-- Say <message> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>say (.+)</pattern>
+            <function>SAY</function>
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- My name is <name> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>my name is (.+)</pattern>
+            <function>REMEMBER</function>
+            <parameters>
+                <parameter>USER_FIRSTNAME</parameter>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- I am <age> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>i am (.+)( years)?( old)?</pattern>
+            <function>REMEMBER</function>
+            <parameters>
+                <parameter>USER_AGE</parameter>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- I don't have a name -->
+        <command>
+            <type>REGEX</type>
+            <pattern>i don't have a name</pattern>
+            <function>REMEMBER</function>
+            <parameters>
+                <parameter>USER_FIRSTNAME</parameter>
+                <parameter>NULL</parameter>
+            </parameters>
+        </command>
+
+        <!-- Ask <contact> for friendship -->
+        <command>
+            <type>REGEX</type>
+            <pattern>ask ([\w\s]+) for friendship</pattern>
+            <function>FRIEND_REQUEST</function>
+            <!--<requirements>
+                <requirement ask="true" message="What is your name?">USER_FIRSTNAME</requirement>
+            </requirements>-->
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- Send <contact> a friend request -->
+        <command>
+            <type>REGEX</type>
+            <pattern>send ([\w\s]+) a friend(?:ship)? request</pattern>
+            <function>FRIEND_REQUEST</function>
+            <!--<requirements>
+                <requirement ask="true">USER_FIRSTNAME</requirement>
+            </requirements>-->
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- Call <contact> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>call (.+)</pattern>
+            <function>CALL</function>
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+        </command>
+
+        <!-- Text <contact> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>text (.+)</pattern>
+            <function>TEXT</function>
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+            <commands>
+                <command>
+                    <type>REGEX</type>
+                    <pattern>(.+)</pattern>
+                    <function>TEXT_MSG</function>
+                    <parameters>
+                        <parameter>$1</parameter>
+                    </parameters>
+                </command>
+            </commands>
+        </command>
+
+        <!-- Mute my phone -->
+        <command>
+            <type>REGEX</type>
+            <pattern>(ringer mode silent|mute my phone|put my phone on mute)</pattern>
+            <function>RINGER_MODE</function>
+            <parameters>
+                <parameter>SILENT</parameter>
+            </parameters>
+        </command>
+
+        <!-- Unmute my phone -->
+        <command>
+            <type>REGEX</type>
+            <pattern>(ringer mode normal|unmute my phone)</pattern>
+            <function>RINGER_MODE</function>
+            <parameters>
+                <parameter>NORMAL</parameter>
+            </parameters>
+        </command>
+
+        <!-- Put my phone on vibrate -->
+        <command>
+            <type>REGEX</type>
+            <pattern>(ringer mode vibrate|put my phone on vibrate)</pattern>
+            <function>RINGER_MODE</function>
+            <parameters>
+                <parameter>VIBRATE</parameter>
+            </parameters>
+        </command>
+
+        <!-- Tell <friend> -->
+        <command>
+            <type>REGEX</type>
+            <pattern>tell (.+)</pattern>
+            <function>TELL</function>
+            <parameters>
+                <parameter>$1</parameter>
+            </parameters>
+            <commands>
+                <command>
+                    <type>REGEX</type>
+                    <pattern>(.+)</pattern>
+                    <function>TELL_MSG</function>
+                    <parameters>
+                        <parameter>$1</parameter>
+                    </parameters>
+                </command>
+            </commands>
+        </command>
+
+        <!-- Enable logging -->
+        <!--<command>-->
+        <!--<type>REGEX</type>-->
+        <!--<pattern>enable logging</pattern>-->
+        <!--<function>TOGGLE_LOGGING</function>-->
+        <!--<parameters>-->
+        <!--<parameter>ON</parameter>-->
+        <!--</parameters>-->
+        <!--</command>-->
+
+        <!-- Disable logging -->
+        <!--<command>-->
+        <!--<type>REGEX</type>-->
+        <!--<pattern>disable logging</pattern>-->
+        <!--<function>TOGGLE_LOGGING</function>-->
+        <!--<parameters>-->
+        <!--<parameter>OFF</parameter>-->
+        <!--</parameters>-->
+        <!--</command>-->
+
+        <!-- Send the reports -->
+        <command>
+            <type>REGEX</type>
+            <pattern>send (the )?logs?</pattern>
+            <function>SEND_LOGCAT</function>
+        </command>
+
+    </commands>
+</assistant>

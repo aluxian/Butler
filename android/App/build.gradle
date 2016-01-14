@@ -1,0 +1,207 @@
+import org.apache.tools.ant.filters.ReplaceTokens
+
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url 'http://download.crashlytics.com/maven'
+        }
+    }
+    dependencies {
+        classpath 'com.android.tools.build:gradle:0.12.2'
+        classpath 'com.newrelic.agent.android:agent-gradle-plugin:3.429.0'
+        classpath 'com.crashlytics.tools.gradle:crashlytics-gradle:1.11.4'
+    }
+}
+
+repositories {
+    mavenCentral()
+    maven {
+        url 'http://download.crashlytics.com/maven'
+    }
+}
+
+apply plugin: 'com.android.application'
+apply plugin: 'crashlytics'
+apply plugin: 'newrelic'
+apply plugin: 'jacoco'
+
+android {
+    compileSdkVersion 20
+    buildToolsVersion '20.0.0'
+
+    defaultConfig {
+        applicationId 'com.aluxian.butler'
+        minSdkVersion 16
+        targetSdkVersion 20
+        versionCode gitVersionCode()
+        versionName gitVersionName()
+    }
+
+    signingConfigs {
+        //noinspection GroovyMissingReturnStatement
+        release {}
+    }
+
+    buildTypes {
+        debug {
+            applicationIdSuffix '.dev'
+            versionNameSuffix '-dev'
+
+            //testCoverageEnabled = true
+
+            buildConfigField 'String', 'CORENLP_SERVER', CORENLP_SERVER_AWS
+            buildConfigField 'String', 'FREEBASE_API_KEY', FREEBASE_API_KEY_DEBUG
+            buildConfigField 'boolean', 'STRICT_MODE', TRUE
+
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        release {
+            //noinspection GroovyAssignabilityCheck
+            signingConfig signingConfigs.release
+
+            buildConfigField 'String', 'CORENLP_SERVER', CORENLP_SERVER_AWS
+            buildConfigField 'String', 'FREEBASE_API_KEY', FREEBASE_API_KEY_RELEASE
+            buildConfigField 'boolean', 'STRICT_MODE', FALSE
+
+            runProguard true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_7
+        targetCompatibility JavaVersion.VERSION_1_7
+    }
+
+    dexOptions {
+        jumboMode true
+    }
+
+    applicationVariants.all { variant ->
+        // Perform resource filtering
+        variant.mergeResources.doLast {
+            filterResources(variant)
+        }
+    }
+}
+
+// Import the keystore properties from an external file
+// @source http://stackoverflow.com/a/20573171/1133344
+allprojects {
+    afterEvaluate { project ->
+        def propsFile = file('keystore.properties')
+        def configName = 'release'
+
+        if (propsFile.exists() && android.signingConfigs.hasProperty(configName)) {
+            def props = new Properties()
+            props.load(new FileInputStream(propsFile))
+            android.signingConfigs[configName].storeFile = file(props['storeFile'])
+            android.signingConfigs[configName].storePassword = props['storePassword']
+            android.signingConfigs[configName].keyAlias = props['keyAlias']
+            android.signingConfigs[configName].keyPassword = props['keyPassword']
+        }
+    }
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile files('libs/stanford-corenlp-2014-06-16/stanford-corenlp-3.4.jar')
+    compile files('libs/stanford-tregex-2014-06-16/stanford-tregex-3.4.jar')
+    compile 'com.newrelic.agent.android:android-agent:3.429.0'
+    compile "com.mixpanel.android:mixpanel-android:4.2.1@aar"
+    compile 'com.crashlytics.android:crashlytics:1.1.11'
+    compile 'com.jakewharton:butterknife:5.1.2'
+    compile 'com.squareup.retrofit:retrofit:1.6.1'
+    compile 'com.squareup.okhttp:okhttp-urlconnection:2.0.0'
+    compile 'com.squareup.okhttp:okhttp:2.0.0'
+    compile 'com.squareup.picasso:picasso:2.3.4'
+    compile 'com.google.code.gson:gson:2.2.4'
+    compile 'com.google.android.gms:play-services:5.0.77'
+    compile 'com.android.support:cardview-v7:21.0.0-rc1'
+    compile 'com.android.support:recyclerview-v7:21.0.0-rc1'
+    compile 'com.android.support:palette-v7:21.0.0-rc1'
+    compile('org.simpleframework:simple-xml:2.7.+') {
+        exclude module: 'stax'
+        exclude module: 'stax-api'
+        exclude module: 'xpp3'
+    }
+}
+
+/**
+ * Gets the version name from the latest Git tag
+ * Tags should be annotated in this format: major.minor.patch[-[alpha|beta]]
+ *
+ * @example `git tag -a "0.1.0-alpha"`
+ * @return App version name
+ */
+def gitVersionName() {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'bash', '-c', 'git describe --tags'
+        standardOutput = stdout
+    }
+    return stdout.toString().trim()
+}
+
+/**
+ * Gets the version code by counting the number of commits
+ * This way the version code is incremented automatically each release
+ *
+ * @return App version code
+ */
+def gitVersionCode() {
+    def stdout = new ByteArrayOutputStream()
+    exec {
+        commandLine 'bash', '-c', 'git log | wc -l'
+        standardOutput = stdout
+    }
+    return Integer.parseInt(stdout.toString().trim())
+}
+
+/**
+ * Filters the resources in order to replace some values
+ *
+ * @param buildVariant The build variant to replace for
+ * @source http://stackoverflow.com/a/23552009/1133344
+ */
+@SuppressWarnings(["GrUnresolvedAccess", "GroovyAssignabilityCheck"])
+def filterResources(buildVariant) {
+    // Set up a temporary directory to filter the resources
+    File resFiltered = file("${buildDir}/res/all/filtered/${buildVariant.dirName}")
+
+    if (resFiltered.exists()) {
+        resFiltered.delete()
+    }
+
+    // Copy and filter the resources
+    copy {
+        from(buildVariant.processResources.resDir) {
+            include '**/*.xml'
+            filter(ReplaceTokens, tokens: [
+                    debug  : [
+                            APP_NAME: APP_NAME_DEBUG
+                    ],
+                    release: [
+                            APP_NAME: APP_NAME_RELEASE
+                    ]
+            ][buildVariant.dirName])
+        }
+
+        from(buildVariant.processResources.resDir) {
+            exclude '**/*.xml'
+        }
+
+        into resFiltered
+    }
+
+    // Delete all the original resource files
+    file(buildVariant.processResources.resDir).deleteDir()
+
+    // Replace with the filtered ones
+    resFiltered.renameTo(file(buildVariant.processResources.resDir))
+
+    // Delete the original 'filtered' directory
+    file("${buildDir}/res/all/filtered").deleteDir()
+}

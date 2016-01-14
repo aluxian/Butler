@@ -1,0 +1,37 @@
+[
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412150400,
+    "datetime": "Wed Oct 01 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412236800,
+    "datetime": "Thu Oct 02 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412323200,
+    "datetime": "Fri Oct 03 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412409600,
+    "datetime": "Sat Oct 04 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412496000,
+    "datetime": "Sun Oct 05 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412582400,
+    "datetime": "Mon Oct 06 2014 11:00:00 GMT+0300 (EEST)"
+  },
+  {
+    "type": "WAKE_UP",
+    "timestamp": 1412668800,
+    "datetime": "Tue Oct 07 2014 11:00:00 GMT+0300 (EEST)"
+  }
+]

@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.neo4j:neo4j-primitive-collections:2.1.2">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-primitive-collections/jars/neo4j-primitive-collections-2.1.2.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-primitive-collections/docs/neo4j-primitive-collections-2.1.2-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-primitive-collections/srcs/neo4j-primitive-collections-2.1.2-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

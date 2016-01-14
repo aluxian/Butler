@@ -1,0 +1,8 @@
+name             'butler-newrelic'
+maintainer       'Alexandru Rosianu'
+maintainer_email 'rosian_alex@yahoo.com'
+license          'All rights reserved'
+description      'Wrapper for the newrelic recipe.'
+long_description 'Wrapper for the newrelic recipe.'
+version          '0.1.1'
+depends          'newrelic'

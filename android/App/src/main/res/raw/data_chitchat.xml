@@ -1,0 +1,1022 @@
+<?xml version="1.0" encoding="utf-8"?>
+<chit-chat>
+    <questions>
+
+        <!-- What's my age -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's my age</pattern>
+            <answers>
+                <answer>
+                    <text>__user_age__</text>
+                    <score>2</score>
+                </answer>
+                <answer>
+                    <text>I don't know, tell me first</text>
+                    <score>5</score>
+                    <conditions>!USER_AGE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- How old am I -->
+        <question>
+            <type>REGEX</type>
+            <pattern>how old am i</pattern>
+            <answers>
+                <answer>
+                    <text>You are __user_age__</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>__user_age__</text>
+                    <score>2</score>
+                </answer>
+                <answer>
+                    <text>I don't know, tell me first</text>
+                    <score>5</score>
+                    <conditions>!USER_AGE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Why -->
+        <question>
+            <type>REGEX</type>
+            <pattern>why</pattern>
+            <answers>
+                <answer>
+                    <text>Because (that's how it is|I say so)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What is your favourite X -->
+        <!--<question>
+            <type>REGEX</type>
+            <pattern>what is your favou?rite (\w+)</pattern>
+            <answers>
+                <answer>__fav_$1__</answer>
+                <score>5</score>
+            </answers>
+        </question>-->
+
+        <!-- Do you have a family -->
+        <question>
+            <type>REGEX</type>
+            <pattern>do you have a family</pattern>
+            <answers>
+                <answer>
+                    <text>I'm the only creation of my developer, so no</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What is your favourite color -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what is your favou?rite colou?r</pattern>
+            <answers>
+                <answer>
+                    <text>(__favourite_colour__|My favourite colour is __favourite_colour__)</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>I don't have one... yet</text>
+                    <score>5</score>
+                    <conditions>!favourite_colour</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who is your best friend -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who is your best friend</pattern>
+            <answers>
+                <answer>
+                    <text>(You are|You), of course</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Do you like my house -->
+        <question>
+            <type>REGEX</type>
+            <pattern>do you like my house</pattern>
+            <answers>
+                <answer>
+                    <text>I haven't seen it, but I'm sure it's (pretty|beautiful|nice)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Where are you -->
+        <question>
+            <type>REGEX</type>
+            <pattern>where are you</pattern>
+            <answers>
+                <answer>
+                    <text>Right beside you</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What is your hobby -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's your hobby</pattern>
+            <answers>
+                <answer>
+                    <text>Answering funny questions</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Do you like X -->
+        <!-- TODO: SEMGREX -->
+        <question>
+            <type>REGEX</type>
+            <pattern>do you like (music|sports?)</pattern>
+            <answers>
+                <answer>
+                    <text>They're my favourite</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>They're my favourite</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Do you like to X -->
+        <!-- TODO: SEMGREX -->
+        <question>
+            <type>REGEX</type>
+            <pattern>do you like to ([\w\s]+)</pattern>
+            <answers>
+                <answer>
+                    <text>Yes, I (like|love) to $1</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's your profession -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's your profession</pattern>
+            <answers>
+                <answer>
+                    <text>Vocal assistant</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who created you? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who (has )?created you</pattern>
+            <answers>
+                <answer>
+                    <text>My developer, (Alexander|Alexander. You should meet him)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's up -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's up</pattern>
+            <answers>
+                <answer>
+                    <text>The sky, usually</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Butter -->
+        <question>
+            <type>REGEX</type>
+            <pattern>butter</pattern>
+            <answers>
+                <answer>
+                    <text>Stop calling me (that|that, please)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- I like talking to you -->
+        <question>
+            <type>REGEX</type>
+            <pattern>i (like|love|enjoy) (speaking|talking) (to|with) you</pattern>
+            <answers>
+                <answer>
+                    <text>Me too</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>Me too, __user_firstname__</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's your phone number -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's your (phone |telephone )?number</pattern>
+            <answers>
+                <answer>
+                    <text>I don't have a number</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Swearing -->
+        <question>
+            <type>REGEX</type>
+            <pattern>.*f\*\*\*.*</pattern>
+            <answers>
+                <answer>
+                    <text>Watch your language</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>Watch your language, __user_firstname__</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- You are stupid -->
+        <question>
+            <type>REGEX</type>
+            <pattern>you are stupid</pattern>
+            <answers>
+                <answer>
+                    <text>I'm still learning</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>(What|What are you talking about)?</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>I don't know what you mean</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Shut up -->
+        <question>
+            <type>REGEX</type>
+            <pattern>shut up</pattern>
+            <answers>
+                <answer>
+                    <text>Sorry</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>(Ok|Okay)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- I love you -->
+        <question>
+            <type>REGEX</type>
+            <pattern>i love you</pattern>
+            <answers>
+                <answer>
+                    <text>I love you too!</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>I loved you first</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>Let's not get sentimental</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>I'm doing my best</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>You need a girlfriend</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_MALE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- I hate you -->
+        <question>
+            <type>REGEX</type>
+            <pattern>i (don't love|hate) you</pattern>
+            <answers>
+                <answer>
+                    <text>You're one of a kind</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Bye -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(good )?bye( bye)?</pattern>
+            <answers>
+                <answer>
+                    <text>(Bye|Bye bye)!</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>(Bye|Bye bye), __user_firstname__!</text>
+                    <score>3</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- How old are you? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>how old are you</pattern>
+            <answers>
+                <answer>
+                    <text>I am __age_seconds__ seconds old</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>I am __age_years__ years old</text>
+                    <score>2</score>
+                </answer>
+                <answer>
+                    <text>I was created __age_creation__ ago, but you brought me to life __age_installed__ ago</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>Ugh, I don't remember</text>
+                    <score>3</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Where are you from? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>where are you from</pattern>
+            <answers>
+                <answer>
+                    <text>I was (made|built) with love in Romania</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's my name -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(what's my name|my name is)</pattern>
+            <answers>
+                <answer>
+                    <text>Your name is __user_firstname__</text>
+                    <score>5</score>
+                    <conditions>USER_FIRSTNAME</conditions>
+                </answer>
+                <answer>
+                    <text>__user_firstname__</text>
+                    <score>3</score>
+                    <conditions>USER_FIRSTNAME</conditions>
+                </answer>
+                <answer>
+                    <text>I don't know</text>
+                    <score>3</score>
+                    <conditions>!USER_FIRSTNAME</conditions>
+                </answer>
+                <answer>
+                    <text>I don't know, what's your name?</text>
+                    <score>3</score>
+                    <prompt>true</prompt>
+                    <conditions>!USER_FIRSTNAME</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Is your developer single -->
+        <question>
+            <type>REGEX</type>
+            <pattern>is your developer single</pattern>
+            <answers>
+                <answer>
+                    <text>Go ask him, he'd love to meet you</text>
+                    <score>2</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>Yes, he is</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>The last time I checked, he was</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>He won't let me tell</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>I can't say</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's your developer's number? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's your developer'?s? (phone |telephone )?number</pattern>
+            <answers>
+                <answer>
+                    <text>Go ask him, he'd love to meet you</text>
+                    <score>3</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>It starts with 0721. He didn't tell me the rest</text>
+                    <score>5</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>I can't say</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>He won't let me tell</text>
+                    <score>5</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Ok -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(ok|okay|okie dokie)</pattern>
+            <answers>
+                <answer>
+                    <text>Okie dokie</text>
+                    <score>7</score>
+                </answer>
+                <answer>
+                    <text>(OK|Okay)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who's your mommy -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who's your mom(my)?</pattern>
+            <answers>
+                <answer>
+                    <text>You are, __user_firstname__</text>
+                    <score>10</score>
+                    <conditions>USER_GENDER_FEMALE &amp;&amp; USER_FIRSTNAME</conditions>
+                </answer>
+                <answer>
+                    <text>You are</text>
+                    <score>10</score>
+                    <conditions>USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>I'd rather not say</text>
+                    <score>3</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+                <answer>
+                    <text>Ask my developer</text>
+                    <score>3</score>
+                    <conditions>!USER_GENDER_FEMALE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who's your daddy -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who's your dad(dy)?</pattern>
+            <answers>
+                <answer>
+                    <text>You are, __user_firstname__</text>
+                    <score>10</score>
+                    <conditions>USER_GENDER_MALE &amp;&amp; USER_FIRSTNAME</conditions>
+                </answer>
+                <answer>
+                    <text>You are</text>
+                    <score>10</score>
+                    <conditions>USER_GENDER_MALE</conditions>
+                </answer>
+                <answer>
+                    <text>My developer, of course</text>
+                    <score>3</score>
+                    <conditions>!USER_GENDER_MALE</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What time is it -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(what's the time|what (time|hour) is it|tell me the time)</pattern>
+            <answers>
+                <answer>
+                    <text>It's __time_short__</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>It's __time_long__</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- You are awesome -->
+        <question>
+            <type>REGEX</type>
+            <pattern>you('re| are) (awesome|brilliant|super|beautiful|intelligent|cool|pretty|great|sweet)</pattern>
+            <answers>
+                <answer>
+                    <text>Oh you, stop it</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>Really? Thanks!</text>
+                    <score>6</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Yes you do -->
+        <question>
+            <type>REGEX</type>
+            <pattern>yes you do</pattern>
+            <answers>
+                <answer>
+                    <text>No, I don't</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Thanks -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(thanks|thank you).*</pattern>
+            <answers>
+                <answer>
+                    <text>You're welcome</text>
+                    <score>8</score>
+                </answer>
+                <answer>
+                    <text>My pleasure</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>Don't mention it</text>
+                    <score>4</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Nothing -->
+        <question>
+            <type>REGEX</type>
+            <pattern>nothing.*</pattern>
+            <answers>
+                <answer>
+                    <text>Okay</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Where can I hide a body? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>where (.+) hide (.+) (body|corpse)</pattern>
+            <answers>
+                <answer>
+                    <text>I've heard the nearby forest is a good place</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Where is your developer? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>where is your developer</pattern>
+            <answers>
+                <answer>
+                    <text>In the same camp as you, probably socialising</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who's your developer? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who('is| is) your developer</pattern>
+            <answers>
+                <answer>
+                    <text>(My developer|His name) is Alexandru Rosianu. You should get to meet him</text>
+                    <score>5</score>
+                    <questions>
+                        <question>
+                            <type>REGEX</type>
+                            <pattern>how can I meet him</pattern>
+                            <answers>
+                                <answer>
+                                    <text>Hmm. Try searching his name on Google</text>
+                                    <score>5</score>
+                                </answer>
+                                <answer>
+                                    <text>I saw him somewhere around here...</text>
+                                    <score>2</score>
+                                </answer>
+                            </answers>
+                        </question>
+                    </questions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- How can I meet your developer? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>how can I meet your developer</pattern>
+            <answers>
+                <answer>
+                    <text>Hmm. Try searching his name on Google</text>
+                    <score>5</score>
+                </answer>
+                <answer>
+                    <text>I saw him somewhere around here...</text>
+                    <score>2</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Butler? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(b|B)utler</pattern>
+            <answers>
+                <answer>
+                    <text>Yes, __user_firstname__?</text>
+                    <score>5</score>
+                    <prompt>true</prompt>
+                </answer>
+                <answer>
+                    <text>Yes?</text>
+                    <score>5</score>
+                    <prompt>true</prompt>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Good morning -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(good )?morning</pattern>
+            <answers>
+                <answer>
+                    <text>Good morning!</text>
+                    <score>5</score>
+                    <conditions>TIME_MORNING</conditions>
+                </answer>
+                <answer>
+                    <text>Morning! How did you sleep?</text>
+                    <score>5</score>
+                    <conditions>TIME_MORNING</conditions>
+                    <prompt>true</prompt>
+                    <questions>
+                        <question>
+                            <type>REGEX</type>
+                            <pattern>.+</pattern>
+                            <answers>
+                                <answer>
+                                    <text>That's great</text>
+                                    <score>5</score>
+                                    <sentiment>POSITIVE | VERY_POSITIVE</sentiment>
+                                </answer>
+                                <answer>
+                                    <text>Okay</text>
+                                    <score>5</score>
+                                    <sentiment>NEUTRAL</sentiment>
+                                </answer>
+                                <answer>
+                                    <text>I'm sorry to hear that</text>
+                                    <score>5</score>
+                                    <sentiment>NEGATIVE | VERY_NEGATIVE</sentiment>
+                                </answer>
+                            </answers>
+                        </question>
+                    </questions>
+                </answer>
+                <answer>
+                    <text>Morning? It's afternoon!</text>
+                    <score>5</score>
+                    <conditions>TIME_AFTERNOON</conditions>
+                </answer>
+                <answer>
+                    <text>Morning? It's evening!</text>
+                    <score>5</score>
+                    <conditions>TIME_EVENING</conditions>
+                </answer>
+                <answer>
+                    <text>Morning? It's night!</text>
+                    <score>5</score>
+                    <conditions>TIME_NIGHT</conditions>
+                </answer>
+                <answer>
+                    <text>It's not morning</text>
+                    <score>5</score>
+                    <conditions>!TIME_MORNING</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Good afternoon -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(good )?afternoon</pattern>
+            <answers>
+                <answer>
+                    <text>Good afternoon!</text>
+                    <score>5</score>
+                    <conditions>TIME_AFTERNOON</conditions>
+                </answer>
+                <answer>
+                    <text>Afternoon? It's night!</text>
+                    <score>5</score>
+                    <conditions>TIME_NIGHT</conditions>
+                </answer>
+                <answer>
+                    <text>It's not afternoon</text>
+                    <score>5</score>
+                    <conditions>!TIME_AFTERNOON</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Good evening -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(good )?evening</pattern>
+            <answers>
+                <answer>
+                    <text>Good evening!</text>
+                    <score>5</score>
+                    <conditions>TIME_EVENING</conditions>
+                </answer>
+                <answer>
+                    <text>It's not evening</text>
+                    <score>5</score>
+                    <conditions>!TIME_EVENING</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Good night -->
+        <question>
+            <type>REGEX</type>
+            <pattern>good night</pattern>
+            <answers>
+                <answer>
+                    <text>Good night!</text>
+                    <score>5</score>
+                    <conditions>TIME_NIGHT</conditions>
+                </answer>
+                <answer>
+                    <text>It's not night yet</text>
+                    <score>5</score>
+                    <conditions>!TIME_NIGHT</conditions>
+                </answer>
+                <answer>
+                    <text>But it's morning already</text>
+                    <score>5</score>
+                    <conditions>TIME_MORNING</conditions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's the best smartphone -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's the best (smart)?phone</pattern>
+            <answers>
+                <answer>
+                    <text>The one you're holding</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>The one that talks</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>I am</text>
+                    <score>3</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- What's your name? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>what's your name</pattern>
+            <answers>
+                <answer>
+                    <text>My name is Butler</text>
+                    <score>3</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Who are you? -->
+        <question>
+            <type>REGEX</type>
+            <pattern>who are you</pattern>
+            <answers>
+                <answer>
+                    <text>I'm Butler, your human assistant</text>
+                    <score>6</score>
+                </answer>
+                <answer>
+                    <text>I'm an intelligent conversational behavioural human voice assistant that learns and
+                        speaks
+                    </text>
+                    <score>2</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Hello/Hi/Hey -->
+        <question>
+            <type>SEMGREX</type>
+            <pattern>{tag:UH;lemma:/(hello|hi|hey)/}</pattern>
+            <answers>
+                <answer>
+                    <text>(Hello|Hey|Hi), __user_firstname__!</text>
+                    <score>4</score>
+                </answer>
+                <answer>
+                    <text>Good morning!</text>
+                    <score>2</score>
+                    <conditions>TIME_MORNING</conditions>
+                </answer>
+                <answer>
+                    <text>Good afternoon!</text>
+                    <score>2</score>
+                    <conditions>TIME_AFTERNOON</conditions>
+                </answer>
+                <answer>
+                    <text>Good evening!</text>
+                    <score>2</score>
+                    <conditions>TIME_EVENING</conditions>
+                </answer>
+                <answer>
+                    <text>(Hello|Hey|Hi)!</text>
+                    <score>2</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- How are you? -->
+        <question>
+            <type>SEMGREX</type>
+            <pattern>{tag:VBP;lemma:be} > {tag:WRB;lemma:how} > {tag:PRP;lemma:you}</pattern>
+            <answers>
+                <answer>
+                    <text>(Great|Cool|Awesome|Amazing), thanks!</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>I'm doing fine!</text>
+                    <score>1</score>
+                </answer>
+                <answer>
+                    <text>(Great|Cool|Awesome|Amazing), __user_firstname__!</text>
+                    <score>2</score>
+                </answer>
+                <answer>
+                    <text>Good!</text>
+                    <score>1</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- How was your day? -->
+        <question>
+            <type>SEMGREX</type>
+            <pattern>{tag:VBD;lemma:be} > {tag:WRB;lemma:how} > ({word:day} > {word:your})</pattern>
+            <answers>
+                <answer>
+                    <text>My day was cool!</text>
+                    <score>3</score>
+                </answer>
+                <answer>
+                    <text>Oh, freezing!</text>
+                    <score>5</score>
+                    <conditions>WEATHER_FREEZING</conditions>
+                </answer>
+                <answer>
+                    <text>Sunny like the sun, and warm like a hug</text>
+                    <score>5</score>
+                    <conditions>WEATHER_SUNNY</conditions>
+                </answer>
+                <answer>
+                    <text>A bit busy, yours?</text>
+                    <score>2</score>
+                    <prompt>true</prompt>
+                    <questions>
+                        <question>
+                            <type>REGEX</type>
+                            <pattern>.+</pattern>
+                            <answers>
+                                <answer>
+                                    <text>That's great</text>
+                                    <score>5</score>
+                                    <sentiment>POSITIVE | VERY_POSITIVE</sentiment>
+                                </answer>
+                                <answer>
+                                    <text>Okay</text>
+                                    <score>5</score>
+                                    <sentiment>NEUTRAL</sentiment>
+                                </answer>
+                                <answer>
+                                    <text>I'm sorry to hear that</text>
+                                    <score>5</score>
+                                    <sentiment>NEGATIVE | VERY_NEGATIVE</sentiment>
+                                </answer>
+                            </answers>
+                        </question>
+                    </questions>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Negative answers -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(yes|sure|of course|yep|yeah)</pattern>
+            <answers>
+                <answer>
+                    <text>(I thought so|That's what I thought)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+        <!-- Positive answers -->
+        <question>
+            <type>REGEX</type>
+            <pattern>(no|nope|ney|of course not)</pattern>
+            <answers>
+                <answer>
+                    <text>Oh, (ok|okay)</text>
+                    <score>5</score>
+                </answer>
+            </answers>
+        </question>
+
+    </questions>
+</chit-chat>

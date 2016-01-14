@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <style name="AppThemeBase" parent="android:Theme.Holo">
+        <item name="android:windowActionBar">false</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@color/colorPrimary</item>
+    </style>
+
+    <style name="AppTheme" parent="AppThemeBase"/>
+
+    <style name="AppTheme.DotStyle">
+        <item name="android:layout_width">2dp</item>
+        <item name="android:layout_height">2dp</item>
+        <item name="android:background">@drawable/shape_dot</item>
+        <item name="android:visibility">gone</item>
+    </style>
+
+</resources>

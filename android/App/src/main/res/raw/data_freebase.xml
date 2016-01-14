@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<freebase>
+    <maps>
+
+        <!-- Who is X -->
+        <map>
+            <type>REGEX</type>
+            <pattern>who (?:is|are|was|were) (.+)</pattern>
+            <filter>(all name:"$1" type:/people/person)</filter>
+            <min-score>0</min-score>
+        </map>
+
+    </maps>
+</freebase>

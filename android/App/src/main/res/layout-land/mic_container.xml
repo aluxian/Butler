@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <RelativeLayout
+        android:id="@+id/microphone_container"
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:layout_marginRight="16dp"
+        android:alpha="0"
+        android:translationX="50dp">
+
+        <View
+            android:id="@+id/microphone_volume"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/mic_volume"
+            android:scaleX="0.67"
+            android:scaleY="0.67" />
+
+        <!--<View
+            android:layout_width="85dp"
+            android:layout_height="85dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="18dp"
+            android:alpha="0.6"
+            android:background="@drawable/round_shadow"/>-->
+
+        <Button
+            android:id="@+id/microphone_button"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/mic_speaking_transition" />
+
+        <ViewFlipper
+            android:id="@+id/button_shape_flipper"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerInParent="true"
+            android:inAnimation="@anim/shape_fade_in"
+            android:outAnimation="@anim/shape_fade_out">
+
+            <View
+                android:id="@+id/microphone_shape"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_mic" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/shape_speaker" />
+
+        </ViewFlipper>
+
+    </RelativeLayout>
+
+</merge>

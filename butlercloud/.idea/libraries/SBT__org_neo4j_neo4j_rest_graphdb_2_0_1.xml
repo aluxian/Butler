@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.neo4j:neo4j-rest-graphdb:2.0.1">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-rest-graphdb/jars/neo4j-rest-graphdb-2.0.1.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-rest-graphdb/docs/neo4j-rest-graphdb-2.0.1-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.neo4j/neo4j-rest-graphdb/srcs/neo4j-rest-graphdb-2.0.1-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

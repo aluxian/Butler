@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="SBT: org.apache.camel:camel-core:2.14.0">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.camel/camel-core/jars/camel-core-2.14.0.jar!/" />
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.camel/camel-core/bundles/camel-core-2.14.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.camel/camel-core/docs/camel-core-2.14.0-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.apache.camel/camel-core/srcs/camel-core-2.14.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

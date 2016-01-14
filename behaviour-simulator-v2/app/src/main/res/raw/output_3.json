@@ -1,0 +1,30 @@
+[
+  {
+    "timestamp": 1412236800,
+    "confidence": 0.20
+  },
+  {
+    "timestamp": 1412323200,
+    "confidence": 0.31
+  },
+  {
+    "timestamp": 1412409600,
+    "confidence": 0.41
+  },
+  {
+    "timestamp": 1412496000,
+    "confidence": 0.50
+  },
+  {
+    "timestamp": 1412582400,
+    "confidence": 0.58
+  },
+  {
+    "timestamp": 1412668800,
+    "confidence": 0.65
+  },
+  {
+    "timestamp": 1412755200,
+    "confidence": 0.71
+  }
+]

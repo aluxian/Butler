@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="SBT: org.igniterealtime.smack:smack-tcp:4.0.5">
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.igniterealtime.smack/smack-tcp/jars/smack-tcp-4.0.5.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.igniterealtime.smack/smack-tcp/docs/smack-tcp-4.0.5-javadoc.jar!/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.ivy2/cache/org.igniterealtime.smack/smack-tcp/srcs/smack-tcp-4.0.5-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

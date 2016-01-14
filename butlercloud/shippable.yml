@@ -1,0 +1,21 @@
+language: scala
+cache: true
+
+scala:
+  - 2.10.4
+
+services:
+  - mongodb
+  - neo4j
+
+script:
+  - export SBT_OPTS="-XX:+CMSClassUnloadingEnabled -XX:PermSize=256M -XX:MaxPermSize=512M"
+  - sbt clean scoverage:test
+
+after_script:
+  - mkdir -p shippable/codecoverage
+  - mv target/scala-2.10/coverage-report/cobertura.xml $PWD/shippable/codecoverage/
+
+notifications:
+  email:
+    - rosian_alex@yahoo.com

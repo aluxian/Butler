@@ -1,0 +1,4 @@
+source "https://supermarket.getchef.com"
+
+cookbook 'butler-newrelic', path: './butler-newrelic'
+cookbook 'butler',          path: './butler'
